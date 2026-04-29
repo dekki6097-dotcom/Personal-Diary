@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Diary</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+    <header class="main-header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-text">MY DIARY</span>
+            </div>
+            <nav class="main-nav">
+                <button id="admin-login-btn" class="btn btn-outline">Admin Login</button>
+                <button id="logout-btn" class="btn btn-outline hidden">Logout</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Personal Diary</h1>
+            <p>Sharing photos, videos, and thoughts in your own personal space.</p>
+        </section>
+
+        <!-- Admin Controls -->
+        <div id="admin-panel" class="admin-panel hidden">
+            <div class="card">
+                <h2>Create New Post</h2>
+                <form id="new-post-form">
+                    <div class="form-group">
+                        <label for="post-title">Title</label>
+                        <input type="text" id="post-title" placeholder="A cool title..." required>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-media">Media URL (Image or Video)</label>
+                        <input type="url" id="post-media" placeholder="https://example.com/image.jpg" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-media-type">Media Type</label>
+                        <select id="post-media-type">
+                            <option value="image">Image</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-desc">Description</label>
+                        <textarea id="post-desc" rows="4" placeholder="Write your thoughts here..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publish Post</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Post Grid -->
+        <div id="posts-grid" class="posts-grid">
+            <!-- Posts will be injected here -->
+            <div class="loading">Loading diary entries...</div>
+        </div>
+    </main>
+
+    <!-- Post Modal -->
+    <div id="post-modal" class="modal hidden">
+        <div class="modal-content card">
+            <button class="close-modal">&times;</button>
+            <div id="modal-body">
+                <!-- Detailed post content -->
+            </div>
+            <hr>
+            <section class="comments-section">
+                <h3>Comments</h3>
+                <div id="comments-list" class="comments-list">
+                    <!-- Comments will be injected here -->
+                </div>
+                <form id="comment-form" class="comment-form">
+                    <textarea id="comment-text" placeholder="Write a comment..." required></textarea>
+                    <button type="submit" class="btn btn-sm btn-primary">Post Comment</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal hidden">
+        <div class="modal-content card login-card">
+            <h2>Admin Access</h2>
+            <p>Enter the secret password to manage the diary.</p>
+            <form id="login-form">
+                <input type="password" id="admin-password" placeholder="Password" required>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline close-login">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2026 Personal Diary</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
